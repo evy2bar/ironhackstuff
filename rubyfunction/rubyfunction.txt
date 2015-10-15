@@ -1,0 +1,4 @@
+para hacer funcionar el codigo con las comidas cambia la variable taste
+  
+
+  ie:   taste "beans"
