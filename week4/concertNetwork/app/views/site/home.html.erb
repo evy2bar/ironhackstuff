@@ -1,0 +1,21 @@
+<h1>Welcome</h1>
+
+<h2>Today</h2>
+<ol>
+	<% @today_concerts.each do |co|%>
+			<li>
+				<h3> <%= link_to co.artist, "/details/#{co.id}", html_options= { } %> Concert</h3>
+				 
+			</li>
+	<%end%>
+</ol>
+
+<h2>Later this month</h2>
+<ol>
+	<% @later_concerts.each do |co|%>
+			<li>
+				<h3> <%= link_to co.artist, "/details/#{co.id}", html_options= { } %> Concert</h3>
+				 
+			</li>
+	<%end%>
+</ol>
