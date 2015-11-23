@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+
+    <title>Search in Spotify</title>
+
+    <link rel="stylesheet" href="search.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="search.js"></script>
+  </head>
+  <body>
+  	<div>
+  	<h1>Search in Spotify NOW</h1>
+  	<header>
+  		<div class="search">
+  			<label>Search Artist</label> <input type="text" class="js-artist">
+  			<button class="js-submitButton" type="submit" value="Submit">New Search</button>
+		</div>
+
+    <div class="search">
+      
+        <button class="js-refreshButton" type="submit" value="Submit">Clear Search</button>
+    </div>
+  	</header>
+
+ 
+    <div>
+
+    <h3>search result</h3>
+    <ul class="show_albums"></ul>
+    <ul class="js-artist-list"></ul>
+
+    </div>
+  </body>
