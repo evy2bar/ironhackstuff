@@ -1,0 +1,15 @@
+.cover-image-wrapper {
+	max-height: 500px;
+	overflow: hidden;
+	
+	
+}
+
+.cover-image {
+	width: 100%;
+	margin-top: -170px;
+}
+
+header:hover {
+    background-color: white;
+}

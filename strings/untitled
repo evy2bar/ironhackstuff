@@ -1,3 +1,0 @@
-
-movie = “Finding Nemo”
-puts “My favourite movie is #{movie}”

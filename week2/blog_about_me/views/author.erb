@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+   <title>My blog</title>
+   <link rel="stylesheet" type="text/css" href="about.css">  <!-- # css file  -->
+   <meta charset="utf-8">
+  </head>
+ <body>
+    <header>
+      My awesome blog
+    </header>
+    <nav>
+      <a href="about">About me</a>
+    </nav>
+    <article>
+      My first post
+    </article>
+    <article>
+      <h1>Hello, world!<img src= "IMG_0060.jpg"/></h1> <!--  #picture  -->
+      <h2>Seems the world is ok!</h2>
+      <p>by @eve</p>
+      <p>This is my first blog post.</p>
+      <% if Time.now.tuesday? %>
+      <p>Not a big fan of tuesdays!!!<p>
+        <% end %>
+        <% if Time.now.wednesday? %>
+      <p>............................<p>
+        <% end %>
+      <p>I was born <%= @years_ago %>
+        years ago <p>
+    </article>
+    <footer>
+    	<ul>
+        <li><a href="https://www.linkedin.com/pub/evelyn-barrios/102/b54/301">Linkedin</a></li>
+        <li><a href="https://www.facebook.com/eve2bar">Facebook</a></li>
+      </ul>
+      <p>Copyleft Ironhack 2015 ;)</p>
+    </footer>
+  </body>
+</html>

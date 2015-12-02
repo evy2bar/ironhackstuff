@@ -11,7 +11,8 @@
 	 Concert.new(artist:"Shakira", venue: "AAA", city: "miami" ,date: Time.new(2015, 11, 13, 19, 00), price:165.00 ),
 	 Concert.new(artist:"Mana", venue: "AAA", city: "miami" ,date: Time.new(2015, 11, 30, 14, 00), price:145.00 ),
 	 Concert.new(artist:"Guns and Roses", venue: "AAA",city: "miami" , date: Time.new(2016 ,01, 30, 18, 00), price:205.50 , description: "The best"),
-]
+	 Concert.new(artist:"Shakira", venue: "AAA", city: "miami" ,date: Time.new(2015, 11, 15, 19, 00), price:165.00 )
+	 ]	 
 concerts.each do |conc|
 	conc.save
 end

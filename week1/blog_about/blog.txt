@@ -1,0 +1,207 @@
+require 'time'     #=============>>> find a way to print the original date
+
+class Blog 
+ 	def initialize()
+ 		@post = []
+ 	end
+
+ 	def addPost(newpost)
+ 		@post.push(newpost)
+ 	end
+
+   # def sorted_post
+   #  posts.sort do |post1, post2|
+   #      post2.date <=> post1.date
+   # end
+	# 	@front_page = front_page        =====================> 
+	# end
+
+	
+	def publish_front_page
+	
+		@post.each do |post|
+	end
+end
+
+end
+
+
+ 
+class Post
+	def initialize(title, time, text)
+		@title = title
+		@time = time
+		@text = text
+	end 
+
+	def print_post
+		puts "#{@title}\n #{@time} \n ****************** \n #{@text} \n"
+		puts "\n"
+		
+	end
+	def sponsor_post
+		puts "*****#{@title}*****\n #{@time} \n ****************** \n #{@text} \n"
+		puts "\n"
+
+	end
+
+end 
+#  class SponsoredPost < Post
+#  puts "*****#{@title}*****\n #{@time} \n ****************** \n #{@text} \n"
+# 		puts "\n"
+
+# end
+
+
+post1 = Post.new("My new blog post", Time.new(2015,12,04,14,34), "First time posting on my new blog.")
+post1.print_post
+
+post2 = Post.new("second post", Time.new(2015, 12,05,15,12), "second posting")
+post2.sponsor_post
+
+post3 = Post.new("funny stuff", Time.new(2015,12,05,23,00), "first funny stuff I post")
+post3.print_post
+
+post4 = Post.new("adding", Time.new(2015,12,24,23,04), "more of this stuff")
+post4.print_post
+
+post5 = Post.new("more adding", Time.new(2015,12,24,23,13), "more adding to this stuff")
+post5.print_post
+
+post6 = Post.new("more funny adding", Time.new(2015,12,24,23,45), " this stuff")
+post6.print_post
+
+post7 = Post.new("more funny stuff adding", Time.new(2015,12,24,23,56), "more add")
+post7.print_post
+
+blog = Blog.new()
+
+
+
+
+#blog.creates_front_page
+blog.publish_front_page
+
+
+
+
+
+
+
+
+===============================.......,,,,,,=========================
+
+
+
+
+Aprende a Programar en Miami
+----------------------------
+
+En miam ksdhfkjshdf ksdhfj sdhfkjsdhfkjsf
+sfkjhsdkjfhksjdhfsdfsdfssdf
+sdfkjhsdkjfhsdkjfhsdfs
+dfskdfhskdfhksdhfhkshdfkjsdhkfsd
+fksjdhfksdhfkjsdhkfjhskdjfhksjdhfkjsdhkfhsdf
+
+
+===========================================
+
+
+Otra Noticia Importante
+-----------------------
+
+skjdfhksjdhfjsdf
+ sdf kjsdkj fads
+ f asdfhkahsdkjfa jsdfkja dsf
+
+
+
+
+
+require 'time'     #=============>>> find a way to print the original date
+
+class Blog 
+ 	def initialize()
+ 		@post = []
+ 	end
+
+ 	def addPost(newpost)
+ 		@post.push(newpost)
+ 	end
+
+   # def sorted_post
+   #  posts.sort do |post1, post2|
+   #      post2.date <=> post1.date
+   # end
+	# 	@front_page = front_page        =====================> 
+	# end
+
+	
+	def publish_front_page
+	
+		@post.each do |post|
+			post.print_post
+
+	end
+end
+
+end
+
+
+ 
+class Post
+	def initialize(title, time, text)
+		@title = title
+		@time = time
+		@text = text
+	end 
+
+	def print_post
+		puts "#{@title}\n #{@time} \n ****************** \n #{@text} \n"
+		puts "\n"
+		
+	end
+	# def sponsor_post
+	# 	puts "*****#{@title}*****\n #{@time} \n ****************** \n #{@text} \n"
+	# 	puts "\n"
+
+	# end
+
+end  
+
+class SponsoredPost < Post
+    def print_post
+        puts "*****#{@title}*****\n #{@time} \n ****************** \n #{@text} \n"
+		puts "\n"
+    end
+end
+
+
+post1 = Post.new("My new blog post", Time.new(2015,12,04,14,34), "First time posting on my new blog.")
+post1.print_post
+
+post2 = SponsoredPost.new("second post", Time.new(2015, 12,05,15,12), "second posting")
+post2.print_post  
+
+post3 = Post.new("funny stuff", Time.new(2015,12,05,23,00), "first funny stuff I post")
+post3.print_post
+
+post4 = Post.new("adding", Time.new(2015,12,24,23,04), "more of this stuff")
+post4.print_post
+
+post5 = Post.new("more adding", Time.new(2015,12,24,23,13), "more adding to this stuff")
+post5.print_post
+
+post6 = Post.new("more funny adding", Time.new(2015,12,24,23,45), " this stuff")
+post6.print_post
+
+post7 = Post.new("more funny stuff adding", Time.new(2015,12,24,23,56), "more add")
+post7.print_post
+
+blog = Blog.new()
+
+
+
+
+#blog.creates_front_page
+blog.publish_front_page

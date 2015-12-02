@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+  <title>Welcome to this page</title>
+</head>
+<h2> Please log in</h2>
+
+<% if @error != nil %>
+	<span> <%= @error %> </span>
+<% end %>
+
+<form method="POST" action="/processing" >
+
+<label> Username:</label>
+<input type="text" name="username" >      <!-- placeholder="username"-->
+
+<label> Password:</label>
+<input type="password" name="password" >       <!-- placeholder="password" -->
+
+
+
+<button type="submit" >
+	Log in
+</button>
+
+</form>
+
+<!-- <form action="/calculate_add" method="POST">
+  <input type="number" name="first_number" placeholder="1st number"> +
+  <input type="number" name="second_number" placeholder="2nd number">
+​
+  <button type="submit">Calculate</button>
+</form> -->

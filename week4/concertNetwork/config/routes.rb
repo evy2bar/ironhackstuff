@@ -58,4 +58,18 @@ Rails.application.routes.draw do
 
   get "/details/:id" => "site#details"
 
+  get "/login" => "site#login" #button_to in home.html.erb
+
+  post "/" => "site#home" #button_to in new.html.erb
 end
+
+
+
+
+
+
+
+
+
+
+

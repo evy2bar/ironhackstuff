@@ -4,7 +4,8 @@ class SiteController < ApplicationController
 		
 		@concerts = Concert.all
 		@today_concerts = @concerts.select{ |concert| Time.now.day == concert.date.localtime.day}
-		@later_concerts = @concerts.select{ |concert| Time.now.day != concert.date.localtime.day }
+		@later_concerts = @concerts.select{ |concert| Time.now.day < concert.date.localtime.day}
+		@past_concerts = @concerts.select{ |concert| Time.now.day > concert.date.localtime.day}
 		render ("home")
 
 	end

@@ -1,0 +1,33 @@
+<% content_for :head do %>
+<%= javascript_include_tag "bootstrap-dropdown-checkbox" %>
+<%= javascript_include_tag "checkbox_related" %>
+<% end %>
+<div class="container">
+	<div class="title-box">
+		<h1>Welcome to funTrip,</h1>
+		<h1>we make your trip Funtastic!!</h1>
+	</div>
+	<div class="jumbotron">
+		<div class="container-wrapper">
+			<div><input class="start-point"></div>
+			<div><input class="end-point"></div>
+			<div>
+				<select required name="radius" id="radius-selector">
+					<option class="placeholder" selected disable value="">radius</option>
+					<option value="5">5 miles</option>
+					<option value="10">10 miles</option>
+					<option value="+15">+15 miles</option>
+				</select>
+				<div class="myDropdownCheckbox"></div>
+			</div>
+			
+			
+			<div>
+				<button class="fun-button" type="submit">Show my options</button>
+			</div>
+		</div>
+	</div>
+	
+	
+</div>
+</div>
