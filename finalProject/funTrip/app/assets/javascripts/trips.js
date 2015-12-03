@@ -2,6 +2,28 @@
 // All this logic will automatically be available in application.js.
 
 $(document).on ("ready",function(){
-	
+
+	$(".fun-button").on("click", function(event) {
+
+		var from = $(".start-point").val();
+		var to = $(".end-point").val();
+
+
+        if (!from || !to)  {
+            alert("There are empty fields!");
+            return;
+        }
+
+		radius = $("#radius-selector").val();
+		localStorage.setItem("startpoint", from)
+		localStorage.setItem("endpoint", to)
+		localStorage.setItem("radius", radius)
+
+
+        window.location.href="/map";
+    });
+
 });
 
+
+// 
