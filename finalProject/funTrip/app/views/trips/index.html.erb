@@ -10,11 +10,16 @@
 	</div>
 	<div class="jumbotron">
 		<div class="container-wrapper">
-			<div><input class="start-point"></div>
-			<div><input class="end-point"></div>
-			<div>
+			<input type="text" class="start-point form-control" id="formGroupExampleInput" placeholder="Start Point">
+
+	
+			<input type="text" class="end-point form-control" id="formGroupExampleInput2" placeholder="End Point">
+		
+			<div class="wish-list-container">
+
+
 				<select required name="radius" id="radius-selector">
-					<option class="placeholder" selected disable value="">radius</option>
+					<option class="placeholder" selected disabled value="">radius</option>
 					<option value="5">5 miles</option>
 					<option value="10">10 miles</option>
 					<option value="+15">+15 miles</option>
@@ -22,13 +27,9 @@
 				<div class="myDropdownCheckbox"></div>
 			</div>
 			
-			
 			<div>
-				<button class="fun-button" type="submit">Show my options</button>
+				<button type="button" class="fun-button btn btn-success">Show my options</button>
 			</div>
 		</div>
 	</div>
-	
-
-	
 </div>

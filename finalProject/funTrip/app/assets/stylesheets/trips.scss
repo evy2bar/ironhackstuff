@@ -59,3 +59,27 @@ select > .placeholder {
 .navbar-link {
 	color:white;
 }
+
+.wish-list-container {
+  display: inline-flex;
+  margin: 10px 0;
+}
+
+#radius-selector {
+  margin-right: 25px;
+  color: #F7F7F7;
+  background-color: #5bc0de;
+  border-color: #46b8da;
+}
+
+.myDropdownCheckbox {
+color: grey;
+background-color: coral;
+border-color: #f1763e;
+}
+
+.fun-button {
+  margin-left: 25%;
+  margin-right:25%;
+}
+
