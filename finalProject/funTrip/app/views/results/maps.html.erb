@@ -28,14 +28,16 @@ var geocoder =  new google.maps.Geocoder();
 var from = localStorage.getItem("startpoint");
 var to = localStorage.getItem("endpoint");
 var radius = localStorage.getItem("radius");
-
-
+var directionsDisplay;
+var directionsService = new google.maps.DirectionsService();
+var  mode = localStorage.getItem("mode");
+var routes = new google.maps.DirectionsRenderer();
 
 
 
 function initMap() {
-  var directionsService = new google.maps.DirectionsService;
-  var directionsDisplay = new google.maps.DirectionsRenderer;
+
+   directionsDisplay = new google.maps.DirectionsRenderer;
   map = new google.maps.Map(document.getElementById('map'), {
     zoom: 16,
     center: {lat: 41.85, lng: -87.65}
@@ -47,22 +49,37 @@ function initMap() {
 
 }
 
-
-
-
 function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+
   directionsService.route({
+
     origin: from,
     destination: to,
-    travelMode: google.maps.TravelMode.DRIVING
+    provideRouteAlternatives: true,     //==========================> alternative routes
+    travelMode:google.maps.TravelMode[mode]
   }, function(response, status) {
     if (status === google.maps.DirectionsStatus.OK) {
-      directionsDisplay.setDirections(response);
+      for (var i = 0, len = response.routes.length; i < len; i++) {
+        new google.maps.DirectionsRenderer({
+          map: map,
+          directions: response,
+          routeIndex: i
+        });
+
+        directionsDisplay.setDirections(response);
+        console.log(response)
+      }
     } else {
       window.alert('Directions request failed due to ' + status);
     }
   });
 }
+
+
+
+
+
+
 
 function convertToMeters(radius){
   return radius * 1609.34;
@@ -74,9 +91,6 @@ initMap();
 
 geocoder.geocode( { 'address': from}, function(results, status) {
   if (status == google.maps.GeocoderStatus.OK) {
-//    var lat = results[0].geometry.location.lat();
-//    var lng = results[0].geometry.location.lng());
-
     var request = {
       location: results[0].geometry.location,
       radius: convertToMeters(radius),
@@ -95,10 +109,7 @@ geocoder.geocode( { 'address': from}, function(results, status) {
 
 geocoder.geocode( { 'address': to}, function(results, status) {
   if (status == google.maps.GeocoderStatus.OK) {
-//    var lat = results[0].geometry.location.lat();
-//    var lng = results[0].geometry.location.lng());
-
-    var request = {
+  var request = {
       location: results[0].geometry.location,
       radius: convertToMeters(radius),
       types: ['store']

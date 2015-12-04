@@ -16,18 +16,29 @@
 			<input type="text" class="end-point form-control" id="formGroupExampleInput2" placeholder="End Point">
 		
 			<div class="wish-list-container">
+				<select id="radius-selector">
+					<option value="5">5 mi radius</option>
+					<option value="10">10 mi radius</option>
+          <option value="250 ">+10 mi radius</option>
+        </select>
+      </div>
+
+      <div class="travel-mode-container">
+        <select id="mode">
+          <option value="DRIVING">Driving</option>
+          <option value="WALKING">Walking</option>
+          <option value="BICYCLING">Bicycling</option>
+          <option value="TRANSIT">Transit</option>
+        </select>
+      </div>
 
 
-				<select required name="radius" id="radius-selector">
-					<option class="placeholder" selected disabled value="">radius</option>
-					<option value="5">5 miles</option>
-					<option value="10">10 miles</option>
-					<option value="15">15 miles</option>
-          <option value="250 ">+15 miles</option>
-				</select>
+
 				<div class="myDropdownCheckbox"></div>
-			</div>
-			
+
+
+
+
 			<div>
 				<button type="button" class="fun-button btn btn-success">Show my options</button>
 			</div>

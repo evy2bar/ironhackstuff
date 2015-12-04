@@ -15,11 +15,13 @@ $(document).on ("ready",function() {
             return;
         }
 
-		radius = $("#radius-selector").val();
+		var radius = $("#radius-selector").val();
 		localStorage.setItem("startpoint", from);
 		localStorage.setItem("endpoint", to);
 		localStorage.setItem("radius", radius);
 
+       var mode = $("#mode").val();
+        localStorage.setItem("mode", mode);
 
         window.location.href="/map";
     });
