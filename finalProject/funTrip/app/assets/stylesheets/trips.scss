@@ -2,12 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-body {
-	height: 100%;
-	background-size: 100%;
-	background-repeat: no-repeat;
-background: url('/assets/road.jpg');
+body, html {
+  height: 100%;
 }
+
+body {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url('/assets/road.jpeg');
+}
+
+body.sign-up {}
 
 .container-wrapper {
 	padding-top: 15px;
@@ -72,10 +77,12 @@ select > .placeholder {
   border-color: #46b8da;
 }
 
-.myDropdownCheckbox {
-color: grey;
-background-color: coral;
-border-color: #f1763e;
+.myDropdownCheckbox .dropdown-checkbox-toggle {
+color: white;
+background-color: #ffa871;
+border-color: #f1c78e;
+  border-radius: 5px;
+  border-width: 1px;
 }
 
 .fun-button {
@@ -83,3 +90,18 @@ border-color: #f1763e;
   margin-right:25%;
 }
 
+.title-box {
+  font-family: Herculanum;
+}
+
+.devise-container {
+  position: absolute;
+  margin-left: 50%;
+  left: -125px;
+  width: 250px;
+  margin-top: 70px;
+}
+
+#user_email, #user_password {
+  width: 100%;
+}
