@@ -14,5 +14,5 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require route_boxer
-//= require trips
+//= require_tree .
 
