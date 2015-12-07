@@ -9,7 +9,6 @@
       <body>
       <div id="map"></div>
 
-          <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyByrNx3ukuCGzwjIQGxmN6hsZcm-4xWUgQ&libraries=places"></script>
 
     <script>
       var map;
@@ -57,18 +56,24 @@
               });
 
               directionsDisplay.setDirections(response);
-              console.log(response)
+
+              var rboxer = new RouteBoxer();
+              var distance = 20; // km
+
+              // Box the overview path of the first route
+              var path = response.routes[i].overview_path;
+              var boxes = rboxer.box(path, distance);
+          console.log(boxes.length)
+              for (var j = 0; j < boxes.length; j++) {
+                var bounds = boxes[i];
+               console.log(bounds)
+              }
             }
           } else {
             window.alert('Directions request failed due to ' + status);
           }
         });
       }
-
-
-
-
-
 
 
       function convertToMeters(radius){
