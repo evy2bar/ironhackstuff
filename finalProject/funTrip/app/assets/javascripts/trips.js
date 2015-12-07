@@ -23,12 +23,12 @@ $(document).on ("ready",function() {
        var mode = $("#mode").val();
         localStorage.setItem("mode", mode);
 
+
+       var selected = $(".myDropdownCheckbox").dropdownCheckbox("checked");
+        localStorage.setItem("wish_do_list",selected);
+
+
         window.location.href="/map";
     });
-
-    //$("#radius-selector").
-
 });
 
-
-// 
