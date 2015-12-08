@@ -8,7 +8,10 @@ $(document).on ("ready",function(){
             {id: 2, label: "Night Life" },
             {id: 3, label: "Nature" },
             {id: 4, label: "Museums" },
-            {id: 5, label: "Fun for fids" }
+            {id: 5, label: "Kids" },
+            {id: 6, label: "Gas" },
+            {id: 7, label: "Art" },
+            {id: 8, label: "City Treasures" }
 
         ];
         $(".myDropdownCheckbox").dropdownCheckbox({

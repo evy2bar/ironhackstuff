@@ -59,16 +59,38 @@
               directionsDisplay.setDirections(response);
 
               var rboxer = new RouteBoxer();
-              var distance = 20; // km
+              var distance = radius; // km
 
-              // Box the overview path of the first route
               var path = response.routes[i].overview_path;
               var boxes = rboxer.box(path, distance);
-                //console.log(boxes.length)
               for (var j = 0; j < boxes.length; j++) {
-                var bounds = boxes[i];
+                var bounds = boxes[j];
                 var allPlaces = getRelatedInterests(selected);
-                console.log(allPlaces)
+                var centerBoxes = bounds.getCenter();
+                console.log(bounds)
+                drawBoxes(bounds)
+
+                var request = {
+                  location: centerBoxes,
+                  radius: convertToMeters(radius),
+                  types:  getRelatedInterests(selected)
+                };
+
+                service = new google.maps.places.PlacesService(map);
+                service.nearbySearch(request, callback);
+
+//                setTimeout(function(){
+//                 console.log(j)
+//                }, 1000)
+
+//
+//                var marker = new google.maps.Marker({
+//                  position: centerBoxes,
+//                  map: map,
+//
+//                });
+//                //marker.setMap(map);
+
               }
             }
           } else {
@@ -76,6 +98,21 @@
           }
         });
       }
+
+      function drawBoxes(bounds) {
+
+          new google.maps.Rectangle({
+            bounds: bounds,
+            fillOpacity: 0,
+            strokeOpacity: 1.0,
+            strokeColor: '#000000',
+            strokeWeight: 1,
+            map: map
+          });
+
+      }
+
+
 
       function convertToMeters(radius){
         return radius * 1609.34;
@@ -86,9 +123,16 @@
 
       var hash_types = {};
       hash_types['museums'] = ['museum'];
-      hash_types['nature'] = ['park', 'campground'];
-      hash_types['food'] = ['restaurant', 'food'];
-      hash_types['night life'] = ['casino', 'night_club', 'bar', 'movie_theater'];
+      hash_types['nature'] = ['park', 'campground', 'rv_park'];
+      hash_types['food'] = ['restaurant', 'food', 'cafe'];
+      hash_types['night life'] = ['casino', 'night_club', 'bar', 'movie_theater', 'bowling_alley'];
+      hash_types['kids'] = ['amusement_park', 'aquarium', 'zoo'];
+      hash_types['gas'] = ['gas_station'];
+      hash_types['art'] = ['art_gallery'];
+      hash_types['city treasures'] = ['city_hall', 'hindu_temple'];
+
+
+
 
       function getRelatedInterests(selected) {
         var related = [];
@@ -125,7 +169,7 @@
           var request = {
             location: results[0].geometry.location,
             radius: convertToMeters(radius),
-            types: ['bar']
+            types:  getRelatedInterests(selected)
           };
 
           service = new google.maps.places.PlacesService(map);
@@ -140,10 +184,10 @@
 
 
       function callback(results, status) {
+        console.log(status)
         if (status == google.maps.places.PlacesServiceStatus.OK) {
           for (var i = 0; i < results.length; i++) {
-            place = results[i];
-
+            place = results[i]
             var marker = new google.maps.Marker({
               position: place.geometry.location,
               map: map
