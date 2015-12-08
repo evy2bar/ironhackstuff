@@ -22,14 +22,85 @@
       var  mode = localStorage.getItem("mode");
       var routes = new google.maps.DirectionsRenderer();
       var selected = localStorage.getItem("wish_do_list").split(",");
+      var iconBase = 'https://maps.google.com/mapfiles/kml/';
 
+
+      var icons = {
+        art_gallery: {
+          icon: iconBase + 'pal4/icon13.png'
+        },
+        night_club: {
+          icon: iconBase + 'pal2/icon19.png'
+        },
+        movie_theater: {
+          icon: iconBase + "pal2/icon30.png"
+        },
+        bar: {
+          icon: iconBase + 'pal2/icon19.png'
+        },
+        park: {
+          icon: iconBase + 'pal2/icon4.png'
+        },
+        zoo: {
+          icon: iconBase + 'pal2/icon0.png'
+        },
+        amusement_park: {
+          icon: iconBase + 'pal4/icon21.png'
+        },
+        gas_station: {
+          icon: iconBase + 'pal2/icon29.png'
+        },
+        aquarium: {
+          icon: iconBase + 'pal4/icon6.png'
+        },
+        campground: {
+          icon: iconBase + 'pal3/icon23.png'
+        },
+        bowling_alley: {
+          icon: iconBase + 'pal3/icon15.png'
+        },
+        casino: {
+          icon: iconBase + 'pal2/icon59.png'
+        },
+        city_hall: {
+          icon: iconBase + 'pal3/icon21.png'
+        },
+        food: {
+            icon: iconBase + 'pal2/icon46.png'
+        },
+        museum: {
+          icon: iconBase + 'pal3/icon30.png'
+        },
+        hindu_temple: {
+          icon: iconBase + 'pal2/icon3.png'
+        },
+        restaurant: {
+          icon: iconBase + 'pal2/icon46.png'
+        },
+        cafe: {
+          icon: iconBase + 'pal2/icon62.png'
+        },
+        rv_park: {
+          icon: iconBase + 'pal2/icon4.png'
+        },
+        car_repair: {
+          icon: iconBase + 'pal2/icon29.png'
+        },
+        convenience_store: {
+          icon: iconBase + 'pal2/icon29.png'
+        },
+        store: {
+          icon: iconBase + 'pal2/icon29.png'
+        }
+
+      };
 
       function initMap() {
 
         var directionsDisplay = new google.maps.DirectionsRenderer({
           draggable: true,
           map: map
-        });
+        })
 
         map = new google.maps.Map(document.getElementById('map'), {
           zoom: 16,
@@ -85,7 +156,7 @@
                 var bounds = boxes[j];
                 var centerBoxes = bounds.getCenter();
 //
-//                drawBoxes(bounds);
+               drawBoxes(bounds);
 
                 var request = {
                   location: centerBoxes,
@@ -102,16 +173,16 @@
         });
       }
 
-//      function drawBoxes(bounds) {
-//          new google.maps.Rectangle({
-//            bounds: bounds,
-//            fillOpacity: 0,
-//            strokeOpacity: 1.0,
-//            strokeColor: '#000000',
-//            strokeWeight: 1,
-//            map: map
-//          });
-//      }
+      function drawBoxes(bounds) {
+          new google.maps.Rectangle({
+            bounds: bounds,
+            fillOpacity: 0,
+            strokeOpacity: 1.0,
+            strokeColor: '#000000',
+            strokeWeight: 1,
+            map: map
+          });
+      }
 
 
 
@@ -191,12 +262,47 @@
         if (status == google.maps.places.PlacesServiceStatus.OK) {
           for (var i = 0; i < results.length; i++) {
             place = results[i];
-            var marker = new google.maps.Marker({
-              position: place.geometry.location,
-              map: map
-            });
-            marker.setMap(map);
+
+            console.log('this is a type')
+            console.log(place.types[0])
+
+            var icon = icons[place.types[0]]
+            if (icon) {
+              var image = {
+                url: icon.icon
+              };
+
+              var marker = new google.maps.Marker({
+                icon: image,
+                position: place.geometry.location,
+                animation: google.maps.Animation.DROP,
+                draggable: true,
+                map: map
+
+              });
+              marker.setMap(map);
+              marker.addListener('click', toggleBounce.bind(null, marker));
+            } else {
+              console.log("unrecongnized place type: " + place.types[0]);
+            }
           }
+        }
+      }
+
+      function toggleBounce(marker) {
+        console.log(marker)
+        if (marker.getAnimation() !== null) {
+          marker.setAnimation(null);
+        } else {
+          marker.setAnimation(google.maps.Animation.BOUNCE);
+        }
+      }
+
+      function drop() {
+        for (var i =0; i < marker.length; i++) {
+          setTimeout(function() {
+           drop();
+          }, i * 200);
         }
       }
 

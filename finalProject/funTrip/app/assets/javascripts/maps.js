@@ -3,11 +3,26 @@ function repeatingRequest(request) {
         if (status == google.maps.places.PlacesServiceStatus.OK) {
             for (var i = 0; i < results.length; i++) {
                 place = results[i];
-                var marker = new google.maps.Marker({
-                    position: place.geometry.location,
-                    map: map
-                });
-                marker.setMap(map);
+
+                var icon = icons[place.types[0]]
+                if (icon) {
+                    var image = {
+                        url: icon.icon
+                    };
+
+                    var marker = new google.maps.Marker({
+                        icon: image,
+                        position: place.geometry.location,
+                        animation: google.maps.Animation.DROP,
+                        draggable: true,
+                        map: map
+
+                    });
+                    marker.setMap(map);
+                    marker.addListener('click', toggleBounce.bind(null, marker));
+                } else {
+                    console.log("unrecongnized place type: " + place.types[0]);
+                }
             }
         }
         else if (status == google.maps.places.PlacesServiceStatus.OVER_QUERY_LIMIT) {
