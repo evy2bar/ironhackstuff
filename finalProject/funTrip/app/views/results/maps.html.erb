@@ -35,9 +35,23 @@
         directionsDisplay.setMap(map);
 
 
-        calculateAndDisplayRoute(directionsService,directionsDisplay);
 
+          if (mode === "DRIVING"){
+            var trafficLayer = new google.maps.TrafficLayer();
+            trafficLayer.setMap(map);
+          }
+          else if (mode === "TRANSIT") {
+            var transitLayer = new google.maps.TransitLayer();
+            transitLayer.setMap(map);
+          }
+          else {
+            var bikeLayer = new google.maps.BicyclingLayer();
+            bikeLayer.setMap(map);
+          }
+
+        calculateAndDisplayRoute(directionsService,directionsDisplay);
       }
+
 
       function calculateAndDisplayRoute(directionsService, directionsDisplay) {
 
@@ -56,8 +70,6 @@
                 routeIndex: i
               });
 
-              console.log("this is the i #" + i);
-
               directionsDisplay.setDirections(response);
 
               var rboxer = new RouteBoxer();
@@ -68,9 +80,8 @@
               for (var j = 0; j < boxes.length; j++) {
                 var bounds = boxes[j];
                 var centerBoxes = bounds.getCenter();
-                console.log("this is a bound #" + j);
-                console.log(bounds);
-                drawBoxes(bounds);
+//
+//                drawBoxes(bounds);
 
                 var request = {
                   location: centerBoxes,
@@ -87,16 +98,16 @@
         });
       }
 
-      function drawBoxes(bounds) {
-          new google.maps.Rectangle({
-            bounds: bounds,
-            fillOpacity: 0,
-            strokeOpacity: 1.0,
-            strokeColor: '#000000',
-            strokeWeight: 1,
-            map: map
-          });
-      }
+//      function drawBoxes(bounds) {
+//          new google.maps.Rectangle({
+//            bounds: bounds,
+//            fillOpacity: 0,
+//            strokeOpacity: 1.0,
+//            strokeColor: '#000000',
+//            strokeWeight: 1,
+//            map: map
+//          });
+//      }
 
 
 
@@ -170,12 +181,8 @@
 
 
       function callback(results, status) {
-
-
         console.log("this is results");
         console.log(results)
-        console.log("this is the callback");
-        console.log(status);
 
         if (status == google.maps.places.PlacesServiceStatus.OK) {
           for (var i = 0; i < results.length; i++) {
