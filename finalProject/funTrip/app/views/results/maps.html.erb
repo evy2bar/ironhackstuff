@@ -12,7 +12,7 @@
 
     <script>
       var map;
-      var place;
+      var place, service;
       var geocoder =  new google.maps.Geocoder();
       var from = localStorage.getItem("startpoint");
       var to = localStorage.getItem("endpoint");
@@ -46,8 +46,8 @@
           origin: from,
           destination: to,
           provideRouteAlternatives: true,     //==========================> alternative routes
-          travelMode:google.maps.TravelMode[mode]
-        }, function(response, status) {
+          travelMode: google.maps.TravelMode[mode]
+        }, function (response, status) {
           if (status === google.maps.DirectionsStatus.OK) {
             for (var i = 0, len = response.routes.length; i < len; i++) {
               new google.maps.DirectionsRenderer({
@@ -55,6 +55,8 @@
                 directions: response,
                 routeIndex: i
               });
+
+              console.log("this is the i #" + i);
 
               directionsDisplay.setDirections(response);
 
@@ -65,32 +67,18 @@
               var boxes = rboxer.box(path, distance);
               for (var j = 0; j < boxes.length; j++) {
                 var bounds = boxes[j];
-                var allPlaces = getRelatedInterests(selected);
                 var centerBoxes = bounds.getCenter();
-                console.log(bounds)
-                drawBoxes(bounds)
+                console.log("this is a bound #" + j);
+                console.log(bounds);
+                drawBoxes(bounds);
 
                 var request = {
                   location: centerBoxes,
                   radius: convertToMeters(radius),
-                  types:  getRelatedInterests(selected)
+                  types: getRelatedInterests(selected)
                 };
 
-                service = new google.maps.places.PlacesService(map);
-                service.nearbySearch(request, callback);
-
-//                setTimeout(function(){
-//                 console.log(j)
-//                }, 1000)
-
-//
-//                var marker = new google.maps.Marker({
-//                  position: centerBoxes,
-//                  map: map,
-//
-//                });
-//                //marker.setMap(map);
-
+                repeatingRequest(request);
               }
             }
           } else {
@@ -100,7 +88,6 @@
       }
 
       function drawBoxes(bounds) {
-
           new google.maps.Rectangle({
             bounds: bounds,
             fillOpacity: 0,
@@ -109,7 +96,6 @@
             strokeWeight: 1,
             map: map
           });
-
       }
 
 
@@ -184,18 +170,22 @@
 
 
       function callback(results, status) {
-        console.log(status)
+
+
+        console.log("this is results");
+        console.log(results)
+        console.log("this is the callback");
+        console.log(status);
+
         if (status == google.maps.places.PlacesServiceStatus.OK) {
           for (var i = 0; i < results.length; i++) {
-            place = results[i]
+            place = results[i];
             var marker = new google.maps.Marker({
               position: place.geometry.location,
               map: map
             });
             marker.setMap(map);
-
           }
-
         }
       }
 
