@@ -5,7 +5,9 @@ function repeatingRequest(request) {
                 place = results[i];
 
                 var icon = icons[place.types[0]]
-                if (icon) {
+                if (icon && alreadyShown[place.id] === undefined) {
+                    alreadyShown[place.id] = true;
+
                     var image = {
                         url: icon.icon
                     };
@@ -14,14 +16,13 @@ function repeatingRequest(request) {
                         icon: image,
                         position: place.geometry.location,
                         animation: google.maps.Animation.DROP,
-                        draggable: true,
                         map: map
 
                     });
                     marker.setMap(map);
-                    marker.addListener('click', toggleBounce.bind(null, marker));
+                    marker.addListener('click', toggleBounce.bind(null, marker, place));
                 } else {
-                    console.log("unrecongnized place type: " + place.types[0]);
+
                 }
             }
         }

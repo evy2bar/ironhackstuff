@@ -20,11 +20,9 @@
       var directionsDisplay;
       var directionsService = new google.maps.DirectionsService();
       var  mode = localStorage.getItem("mode");
-      var routes = new google.maps.DirectionsRenderer();
       var selected = localStorage.getItem("wish_do_list").split(",");
       var iconBase = 'https://maps.google.com/mapfiles/kml/';
-
-
+      var alreadyShown = {};
       var icons = {
         art_gallery: {
           icon: iconBase + 'pal4/icon13.png'
@@ -109,8 +107,6 @@
         });
         directionsDisplay.setMap(map);
 
-
-
           if (mode === "DRIVING"){
             var trafficLayer = new google.maps.TrafficLayer();
             trafficLayer.setMap(map);
@@ -125,7 +121,29 @@
           }
 
         calculateAndDisplayRoute(directionsService,directionsDisplay);
+
+
+//        var infowindow = new google.maps.InfoWindow();
+//        var service = new google.maps.places.PlacesService(map);
+
+//        service.getDetails({
+//          placeId: place.place_id
+//        }, function(place, status) {
+//          if (status === google.maps.places.PlacesServiceStatus.OK) {
+//            var icon = icons[place.types[0]]({
+//              map: map,
+//              position: place.geometry.location
+//            });
+//            google.maps.event.addListener(icon, 'click', function() {
+//              infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
+//                  'Place ID: ' + place.place_id + '<br>' +
+//                  place.formatted_address + '</div>');
+//              infowindow.open(map, this);
+//            });
+//          }
+//        });
       }
+
 
 
       function calculateAndDisplayRoute(directionsService, directionsDisplay) {
@@ -134,23 +152,19 @@
 
           origin: from,
           destination: to,
-          provideRouteAlternatives: true,     //==========================> alternative routes
+          provideRouteAlternatives: true,    //==========================> alternative routes
+          avoidTolls: true,
           travelMode: google.maps.TravelMode[mode]
         }, function (response, status) {
           if (status === google.maps.DirectionsStatus.OK) {
-            for (var i = 0, len = response.routes.length; i < len; i++) {
-              new google.maps.DirectionsRenderer({
-                map: map,
-                directions: response,
-                routeIndex: i
-              });
+           // for (var i = 0, len = response.routes.length; i < len; i++) {       //dont need the loop as i only want to display one route
 
               directionsDisplay.setDirections(response);
 
               var rboxer = new RouteBoxer();
               var distance = radius; // km
 
-              var path = response.routes[i].overview_path;
+              var path = response.routes[0].overview_path;
               var boxes = rboxer.box(path, distance);
               for (var j = 0; j < boxes.length; j++) {
                 var bounds = boxes[j];
@@ -166,7 +180,7 @@
 
                 repeatingRequest(request);
               }
-            }
+            //}
           } else {
             window.alert('Directions request failed due to ' + status);
           }
@@ -221,6 +235,7 @@
       geocoder.geocode( { 'address': from}, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
           var request = {
+            draggable: true,
             location: results[0].geometry.location,
             radius: convertToMeters(radius),
             types: getRelatedInterests(selected)
@@ -239,6 +254,7 @@
       geocoder.geocode( { 'address': to}, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
           var request = {
+            draggable: true,
             location: results[0].geometry.location,
             radius: convertToMeters(radius),
             types:  getRelatedInterests(selected)
@@ -260,30 +276,26 @@
         console.log(results)
 
         if (status == google.maps.places.PlacesServiceStatus.OK) {
+
           for (var i = 0; i < results.length; i++) {
             place = results[i];
 
-            console.log('this is a type')
-            console.log(place.types[0])
 
             var icon = icons[place.types[0]]
-            if (icon) {
+            if (icon && alreadyShown[place.id] === undefined) {
+              alreadyShown[place.id] = true;
               var image = {
                 url: icon.icon
               };
-
               var marker = new google.maps.Marker({
                 icon: image,
                 position: place.geometry.location,
                 animation: google.maps.Animation.DROP,
-                draggable: true,
                 map: map
 
               });
               marker.setMap(map);
               marker.addListener('click', toggleBounce.bind(null, marker));
-            } else {
-              console.log("unrecongnized place type: " + place.types[0]);
             }
           }
         }
