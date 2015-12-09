@@ -1,8 +1,12 @@
-Rails.application.routes.draw do
-  devise_for :users
-   
- get "/" => "trips#index"
+  Rails.application.routes.draw do
+    devise_for :users
 
- get "/map" => "results#maps"
+    get "/" => "trips#index"
 
-end
+    get "/map" => "results#maps"
+
+    get "/map/panel" => "results#direction_panel"
+
+
+
+  end

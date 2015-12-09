@@ -9,7 +9,6 @@ $(document).on ("ready",function() {
 		var from = $(".start-point").val();
 		var to = $(".end-point").val();
 
-
         if (!from || !to)  {
             alert("There are empty fields!");
             return;
@@ -34,5 +33,8 @@ $(document).on ("ready",function() {
 
         window.location.href="/map";
     });
+
+
+    $(".geocomplete").geocomplete();
 });
 

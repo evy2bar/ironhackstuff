@@ -26,15 +26,27 @@ function showMarkers (results) {
 
             marker.addListener('click', callback)
 
+
         }
     }
 }
 
 
 function markerCallbackBuilder (place, marker) {
+    var open = false;
+
     return function () {
-        showInfoWindow(place, marker);
+        if (open) {
+            infowindow.close();
+            open = false;
+        }
+
+        else {
+            showInfoWindow(place, marker);
+            open = true;
+        }
     };
+
 
 }
 
@@ -45,3 +57,22 @@ function showInfoWindow (place, marker) {
     infowindow.open(map, marker);
 }
 
+
+
+function drop() {
+    for (var i = 0; i < marker.length; i++) {
+        setTimeout(function () {
+            drop();
+        }, i * 200);
+    }
+}
+
+
+//        function toggleBounce(marker) {
+//          console.log(marker)
+//          if (marker.getAnimation() !== null) {
+//            marker.setAnimation(null);
+//          } else {
+//            marker.setAnimation(google.maps.Animation.BOUNCE);
+//          }
+//        }

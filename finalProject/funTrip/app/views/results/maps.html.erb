@@ -11,6 +11,7 @@
 
 
     <script>
+
       var map;
       var place, service;
       var geocoder =  new google.maps.Geocoder();
@@ -136,7 +137,13 @@
             travelMode: google.maps.TravelMode[mode]
           }, function (response, status) {
             if (status === google.maps.DirectionsStatus.OK) {
-              // for (var i = 0, len = response.routes.length; i < len; i++) {       //dont need the loop as i only want to display one route
+              $.ajax({
+                url: '/map/panel',
+                data:response.routes,
+                success: callbackSwowPanel,
+                dataType: 'application/json',
+                method: 'get'
+              });
 
               directionsDisplay.setDirections(response);
 
@@ -165,6 +172,13 @@
             }
           });
         }
+
+           var origin_autocomplete = new google.maps.places.Autocomplete(from);
+           origin_autocomplete.bindTo('bounds', map);
+           var destination_autocomplete = new google.maps.places.Autocomplete(to);
+           destination_autocomplete.bindTo('bounds', map);
+
+
 
 
 //        function drawBoxes(bounds) {

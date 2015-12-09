@@ -1,7 +1,11 @@
 class ResultsController < ApplicationController
 
 	def result
-		render "maps"
+		render 'maps'
 	end
-	
+
+	def direction_panel
+		render 'direction_panel'
+	end
+
 end

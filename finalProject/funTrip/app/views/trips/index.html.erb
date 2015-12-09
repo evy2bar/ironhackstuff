@@ -1,6 +1,7 @@
-<% content_for :head do %>
-<%= javascript_include_tag "bootstrap-dropdown-checkbox" %>
-<%= javascript_include_tag "checkbox_related" %>
+    <% content_for :head do %>
+    <%= javascript_include_tag "bootstrap-dropdown-checkbox" %>
+    <%= javascript_include_tag "checkbox_related" %>
+
 
 <% end %>
 <div class="container">
@@ -10,10 +11,11 @@
 	</div>
 	<div class="jumbotron">
 		<div class="container-wrapper">
-			<input type="text" class="start-point form-control" id="formGroupExampleInput" placeholder="Start Point">
+
+			<input type="text" class="start-point form-control geocomplete" id="formGroupExampleInput" placeholder="Start Point">
 
 	
-			<input type="text" class="end-point form-control" id="formGroupExampleInput2" placeholder="End Point">
+			<input type="text" class="end-point form-control geocomplete" id="formGroupExampleInput2" placeholder="End Point">
 		
 			<div class="wish-list-container">
 				<select id="radius-selector">
@@ -43,3 +45,4 @@
 		</div>
 	</div>
 </div>
+
