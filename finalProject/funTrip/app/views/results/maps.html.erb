@@ -148,8 +148,8 @@
               for (var j = 0; j < boxes.length; j++) {
                 var bounds = boxes[j];
                 var centerBoxes = bounds.getCenter();
-//
-                drawBoxes(bounds);
+
+                //drawBoxes(bounds);
 
                 var request = {
                   location: centerBoxes,
@@ -159,7 +159,7 @@
 
                 repeatingRequest(request);
               }
-              //}
+
             } else {
               window.alert('Directions request failed due to ' + status);
             }
@@ -167,16 +167,16 @@
         }
 
 
-        function drawBoxes(bounds) {
-          new google.maps.Rectangle({
-            bounds: bounds,
-            fillOpacity: 0,
-            strokeOpacity: 1.0,
-            strokeColor: '#000000',
-            strokeWeight: 1,
-            map: map
-          });
-        }
+//        function drawBoxes(bounds) {
+//          new google.maps.Rectangle({
+//            bounds: bounds,
+//            fillOpacity: 0,
+//            strokeOpacity: 1.0,
+//            strokeColor: '#000000',
+//            strokeWeight: 1,
+//            map: map
+//          });
+//        }
 
 
         function convertToMeters(radius) {
@@ -212,7 +212,6 @@
         geocoder.geocode({'address': from}, function (results, status) {
           if (status == google.maps.GeocoderStatus.OK) {
             var request = {
-              draggable: true,
               location: results[0].geometry.location,
               radius: convertToMeters(radius),
               types: getRelatedInterests(selected)
@@ -230,7 +229,6 @@
         geocoder.geocode({'address': to}, function (results, status) {
           if (status == google.maps.GeocoderStatus.OK) {
             var request = {
-              draggable: true,
               location: results[0].geometry.location,
               radius: convertToMeters(radius),
               types: getRelatedInterests(selected)
@@ -246,85 +244,28 @@
 
 
         function callback(results, status) {
-          console.log("this is results");
-          console.log(results)
-
           if (status == google.maps.places.PlacesServiceStatus.OK) {
-
-            for (var i = 0; i < results.length; i++) {
-              place = results[i];
-
-
-              var icon = icons[place.types[0]]
-              if (icon && alreadyShown[place.id] === undefined) {
-                alreadyShown[place.id] = true;
-                var image = {
-                  url: icon.icon
-                };
-
-                var marker = new google.maps.Marker({
-                  icon: image,
-                  position: place.geometry.location,
-                  animation: google.maps.Animation.DROP,
-                  map: map
-
-                });
-                marker.setMap(map);
-                marker.addListener('click', toggleBounce.bind(null, marker));
-                marker.addListener('mouseover', getinfoWindow)
-                function getinfoWindow(){
-                  var infowindow = new google.maps.InfoWindow();
-                  infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
-                      place.address + '</div>');
-                  infowindow.open(map, this);
-
-
-                }
-
-              }
-            }
+            showMarkers(results);
           }
         }
 
-        function toggleBounce(marker) {
-          console.log(marker)
-          if (marker.getAnimation() !== null) {
-            marker.setAnimation(null);
-          } else {
-            marker.setAnimation(google.maps.Animation.BOUNCE);
-          }
-        }
+
+//        function toggleBounce(marker) {
+//          console.log(marker)
+//          if (marker.getAnimation() !== null) {
+//            marker.setAnimation(null);
+//          } else {
+//            marker.setAnimation(google.maps.Animation.BOUNCE);
+//          }
+//        }
 
         function drop() {
           for (var i = 0; i < marker.length; i++) {
             setTimeout(function () {
               drop();
             }, i * 200);
-          }
         }
-
-
-
-//
-      var infowindow = new google.maps.InfoWindow();
-      var service = new google.maps.places.PlacesService(map);
-
-      service.getDetails({
-        placeId: 'ChIJN1t_tDeuEmsRUsoyG83frY4'
-      }, function(place, status) {
-        if (status === google.maps.places.PlacesServiceStatus.OK) {
-          var marker = new google.maps.Marker({
-            map: map,
-            position: place.geometry.location
-          });
-          google.maps.event.addListener(marker, 'click', function() {
-            infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
-                'Place ID: ' + place.place_id + '<br>' +
-                place.formatted_address + '</div>');
-            infowindow.open(map, this);
-          });
-        }
-      });
+     }
 
 
     </script>

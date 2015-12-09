@@ -93,8 +93,8 @@ SOFTWARE.
   list-style: none;
   padding: 5px 10px 5px 10px;
   max-height: 200px;
-  overflow-y: auto;
   overflow-x: visible;
+  margin-bottom: 10px;
 }
 .dropdown-checkbox ul.dropdown-checkbox-menu li {
   padding: 0;
