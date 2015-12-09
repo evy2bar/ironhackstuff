@@ -3,11 +3,11 @@ function repeatingRequest(request) {
         if (status == google.maps.places.PlacesServiceStatus.OK) {
             for (var i = 0; i < results.length; i++) {
                 place = results[i];
-
+                // WE NEED TO FIX THE CLOSURE ISSUE HERE
                 var icon = icons[place.types[0]]
                 if (icon && alreadyShown[place.id] === undefined) {
                     alreadyShown[place.id] = true;
-
+                    // createMarker()
                     var image = {
                         url: icon.icon
                     };
@@ -21,6 +21,24 @@ function repeatingRequest(request) {
                     });
                     marker.setMap(map);
                     marker.addListener('click', toggleBounce.bind(null, marker, place));
+                    marker.addListener('mouseover', getinfoWindow)
+                    function getinfoWindow(){
+                        var infowindow = new google.maps.InfoWindow();
+                        infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
+                            place.address + '</div>');
+                        infowindow.open(map, this);
+
+                      //  marker.addListener('mouseout', closeInfoWindow.bind(null, this))
+
+                    }
+
+                    //function closeInfoWindow(infowindow){
+                    //    console.log("hey")
+                    //    infowindow.close(map, infowindow)
+                    //}
+
+
+
                 } else {
 
                 }
