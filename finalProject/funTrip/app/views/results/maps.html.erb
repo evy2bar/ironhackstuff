@@ -191,7 +191,7 @@
         hash_types['nature'] = ['park', 'campground', 'rv_park'];
         hash_types['food'] = ['restaurant', 'food', 'cafe'];
         hash_types['night life'] = ['casino', 'night_club', 'bar', 'movie_theater', 'bowling_alley'];
-        hash_types['kids'] = ['amusement_park', 'aquarium', 'zoo'];
+        hash_types['kids'] = ['amusement_park', 'aquarium', 'zoo', 'museum'];
         hash_types['gas'] = ['gas_station'];
         hash_types['art'] = ['art_gallery'];
         hash_types['city treasures'] = ['city_hall', 'hindu_temple'];
@@ -250,22 +250,7 @@
         }
 
 
-//        function toggleBounce(marker) {
-//          console.log(marker)
-//          if (marker.getAnimation() !== null) {
-//            marker.setAnimation(null);
-//          } else {
-//            marker.setAnimation(google.maps.Animation.BOUNCE);
-//          }
-//        }
 
-        function drop() {
-          for (var i = 0; i < marker.length; i++) {
-            setTimeout(function () {
-              drop();
-            }, i * 200);
-        }
-     }
 
 
     </script>
