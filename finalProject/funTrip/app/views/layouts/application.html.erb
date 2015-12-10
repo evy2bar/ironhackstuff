@@ -3,7 +3,7 @@
   <head>
     <title>FunTrip</title>
 
-    <% if current_page?(:controller => '/results', :action => 'maps') || current_page?(:controller => '/trips', :action => 'index')  %>
+    <% if current_page?(:controller => '/results', :action => 'maps') || current_page?(:controller => '/trips', :action => 'index') %>
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyByrNx3ukuCGzwjIQGxmN6hsZcm-4xWUgQ&libraries=places"></script>
     <% end %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>

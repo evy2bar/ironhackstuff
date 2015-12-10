@@ -126,22 +126,33 @@ border-color: #f1c78e;
   width: 100%;
 }
 
-#floating-panel {
-  position: absolute;
-  top: 10px;
-  left: 25%;
-  z-index: 5;
-  background-color: #fff;
-  padding: 5px;
-  border: 1px solid #999;
-  text-align: center;
-  font-family: 'Roboto','sans-serif';
-  line-height: 30px;
-  padding-left: 10px;
+#right-panel {
+  height: 75%;
+  float: right;
+  width: 305px;
+  overflow: auto;
+  margin-right: -105px;
+  margin-top: 50px;
+  background:rgba(0, 0, 0, 0.29);
 }
 
-#warnings-panel {
-  width: 100%;
-  height:10%;
-  text-align: center;
-}
+//controlUI.style.backgroundColor = 'rgb(201, 223, 234)';
+//controlUI.style.border = '2px solid #fff';
+//controlUI.style.borderRadius = '3px';
+//controlUI.style.boxShadow = '0 2px 6px rgba(0,0,0,.3)';
+//controlUI.style.cursor = 'pointer';
+//controlUI.style.marginBottom = '22px';
+//controlUI.style.marginRight = '22px';
+//controlUI.style.textAlign = 'center';
+//controlUI.style.height = '500px' ;
+//controlUI.style.width = '280px'
+//controlUI.title = 'DIRECTION PANEL';
+
+
+
+//controlText.style.color = 'rgb(25,25,25)';
+//controlText.style.fontFamily = 'Roboto,Arial,sans-serif';
+//controlText.style.fontSize = '16px';
+//controlText.style.lineHeight = '38px';
+//controlText.style.paddingLeft = '5px';
+//controlText.style.paddingRight = '5px';
