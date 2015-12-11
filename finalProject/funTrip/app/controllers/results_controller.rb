@@ -1,11 +1,11 @@
 class ResultsController < ApplicationController
+	# before_action :authenticate_user!, only: []
 
-	def result
+	def maps
+		authenticate_user!
+
 		render 'maps'
 	end
 
-	def direction_panel
-		render 'direction_panel'
-	end
 
 end

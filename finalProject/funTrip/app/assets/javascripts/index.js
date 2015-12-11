@@ -25,8 +25,8 @@ $(document).on ("ready",function() {
 
        var selected = $(".myDropdownCheckbox").dropdownCheckbox("checked");
        var selectedLabels = selected.map(function(option){
-           return option.label.toLowerCase()
-       })
+           return option.label.toLowerCase();
+       });
 
         localStorage.setItem("wish_do_list",selectedLabels.join(","));
 

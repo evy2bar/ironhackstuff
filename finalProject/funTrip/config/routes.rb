@@ -5,8 +5,6 @@
 
     get "/map" => "results#maps"
 
-    get "/map/panel" => "results#direction_panel"
-
 
 
   end

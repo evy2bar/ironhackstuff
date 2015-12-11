@@ -101,20 +101,42 @@
         var directionsDisplay = new google.maps.DirectionsRenderer({
           draggable: false,
           map: map
-        })
+        });
+        var styleArray = [
+          {
+            featureType: "all",
+            stylers: [
+              { saturation: -60 }
+            ]
+          },{
+            featureType: "road.arterial",
+            elementType: "geometry",
+            stylers: [
+              { hue: "#00ffee" },
+              { saturation: 50 }
+            ]
+          },{
+            featureType: "poi.business",
+            elementType: "labels",
+            stylers: [
+              { visibility: "on" }
+            ]
+          }
+        ];
 
-            map = new google.maps.Map(document.getElementById('map'), {
+        map = new google.maps.Map(document.getElementById('map'), {
           zoom: 16,
+          styles: styleArray,
           // mapTypeId: google.maps.MapTypeId.HYBRID,
           center: {lat: 41.85, lng: -87.65},
-              streetViewControl: true,
-              streetViewControlOptions: {
-                position: google.maps.ControlPosition.LEFT_CENTER
-              },
-              zoomControl: true,
-              zoomControlOptions: {
-                position: google.maps.ControlPosition.LEFT_CENTER
-              }
+          streetViewControl: true,
+          streetViewControlOptions: {
+            position: google.maps.ControlPosition.LEFT_CENTER
+          },
+          zoomControl: true,
+          zoomControlOptions: {
+            position: google.maps.ControlPosition.LEFT_CENTER
+          }
 
         });
 
@@ -123,6 +145,7 @@
         directionPanel.index = 1;
         map.controls[google.maps.ControlPosition.RIGHT_TOP].push(directionPanel);
 
+        directionsDisplay.setPanel(document.getElementById('steps-panel'));
 
         directionsDisplay.setMap(map);
 
@@ -138,9 +161,7 @@
           var bikeLayer = new google.maps.BicyclingLayer();
           bikeLayer.setMap(map);
         }
-
         calculateAndDisplayRoute(directionsService, directionsDisplay);
-
       }
 
 
@@ -269,9 +290,6 @@
             showMarkers(results);
           }
         }
-
-
-
 
     </script>
 

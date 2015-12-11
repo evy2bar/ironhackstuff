@@ -1,21 +1,3 @@
-//function CenterControl(map) {
-//    var controlDiv = document.createElement('div');
-//    var controlUI = document.createElement('div');
-//    controlDiv.appendChild(controlUI);
-//
-//    var controlText = document.createElement('div');
-//    controlText.innerHTML = 'PANEL';
-//    controlUI.appendChild(controlText);
-//
-//    controlUI.addEventListener('click', function() {
-//        map.setCenter(from);
-//    });
-//
-//    $(controlDiv).addClass("center-control")
-//
-//    this.element = controlDiv;
-//}
-
 
 
 function getDirectionPanelHtml () {
@@ -31,25 +13,21 @@ function getDirectionPanelHtml () {
 //        alert("hello")
 //        //map.setCenter( from.lat,from.lng);
 //    });
-//
-//
 //   // var btn = $(event.currentTarget);
-//
-//
 //})
+
+
 var from = localStorage.getItem("startpoint");
 var to = localStorage.getItem("endpoint");
 var  mode = localStorage.getItem("mode");
 var radius = localStorage.getItem("radius");
-var selected = localStorage.getItem("wish_do_list").split(",");
-//console.log(selected)
-$(document).on ("ready",function() {
+//var selected = localStorage.getItem("wish_do_list").split(",");
+
+$(document).on("ready",function() {
     $(".from-panel").val(from);
     $(".to-panel").val(to);
     $("#mode-panel").val(mode);
     $(".radius-panel").val(radius);
-    $("#check-panel").val(selected);
-
 
     // $('body').attr('style', "background-image: url('/assets/road-mountains.jpeg');");
 
@@ -61,7 +39,6 @@ $(document).on ("ready",function() {
             alert("There are empty fields-directions!");
             return;
         }
-
 
         var new_selected = $("#check-panel").dropdownCheckbox("checked");
         var selectedLabels = new_selected.map(function(option){
@@ -79,8 +56,6 @@ $(document).on ("ready",function() {
 
         var mode = $("#mode-panel").val();
         localStorage.setItem("mode", mode);
-
-
 
         window.location.reload(true);
 
