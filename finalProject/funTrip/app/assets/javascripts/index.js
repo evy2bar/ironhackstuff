@@ -4,6 +4,11 @@
 $(document).on ("ready",function() {
    // $('body').attr('style', "background-image: url('/assets/road-mountains.jpeg');");
 
+    $(".alert-success").fadeTo(2000, 500).slideUp(500, function(){
+        $(".alert-success").alert('close');
+    });
+
+
 	$("#index-button").on("click", function(event) {
 
 		var from = $(".start-point").val();

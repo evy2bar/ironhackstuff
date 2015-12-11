@@ -18,8 +18,8 @@
     <% if alert %>
     <p class="alert alert-danger"><%= alert %></p>
     <% end %>
-    <div class="header">
-      <p class="navbar-text pull-right">
+    <div class="header map-header">
+      <p class="navbar-text pull-left">
         <% if user_signed_in? %>
           Logged in as
           <% if current_page?(:controller => "devise/registrations", :action => "edit") %>
@@ -37,18 +37,11 @@
             <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
           <% end %>
         <% end %>
+      </p>
       </div>
 
       <%= yield %>
-      <div class="footer">
-        <p>© FunTrip, Inc. 2015. Superpowered by Google Maps.</p>
-        <div class="bottom-menu">
-          <a href="#">ABOUT</a> |
-          <a href="#">HELP</a> |
-          <a href="#">CONTACT</a> |
-          <a href="#">TERMS OF USE</a>
-        </div>
-      </div>
+
 
     </body>
   </html>

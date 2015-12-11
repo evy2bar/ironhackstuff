@@ -7,14 +7,22 @@ function getDirectionPanelHtml () {
     return directionPanel[0];
 }
 
-//
-//$(document).on("ready", function () {
-//    $(".js-center").on("click", function () {
-//        alert("hello")
-//        //map.setCenter( from.lat,from.lng);
-//    });
-//   // var btn = $(event.currentTarget);
-//})
+
+function createElement() {
+    var loginControlDiv = $(".map-header");
+
+    return loginControlDiv[0];
+}
+
+
+
+$(document).on("ready", function () {
+    $(".js-center").on("click", function () {
+        //alert("hello")
+        map.setCenter( from.lat,from.lng);
+    });
+   // var btn = $(event.currentTarget);
+})
 
 
 var from = localStorage.getItem("startpoint");

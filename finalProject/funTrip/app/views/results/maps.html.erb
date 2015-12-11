@@ -136,6 +136,10 @@
           zoomControl: true,
           zoomControlOptions: {
             position: google.maps.ControlPosition.LEFT_CENTER
+          },
+          mapTypeControl: true,
+          mapTypeControlOptions: {
+            position: google.maps.ControlPosition.LEFT_CENTER
           }
 
         });
@@ -143,7 +147,12 @@
 
         var directionPanel = getDirectionPanelHtml();
         directionPanel.index = 1;
-        map.controls[google.maps.ControlPosition.RIGHT_TOP].push(directionPanel);
+        map.controls[google.maps.ControlPosition.RIGHT_CENTER].push(directionPanel);
+
+        var loginControlDiv = createElement();
+        loginControlDiv.index = 1;
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(loginControlDiv);
+
 
         directionsDisplay.setPanel(document.getElementById('steps-panel'));
 
@@ -163,6 +172,8 @@
         }
         calculateAndDisplayRoute(directionsService, directionsDisplay);
       }
+
+
 
 
         function calculateAndDisplayRoute(directionsService, directionsDisplay) {
