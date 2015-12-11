@@ -4,13 +4,13 @@
 $(document).on ("ready",function() {
    // $('body').attr('style', "background-image: url('/assets/road-mountains.jpeg');");
 
-	$(".fun-button").on("click", function(event) {
+	$("#index-button").on("click", function(event) {
 
 		var from = $(".start-point").val();
 		var to = $(".end-point").val();
 
         if (!from || !to)  {
-            alert("There are empty fields!");
+            alert("There are empty fields-index!");
             return;
         }
 
@@ -30,8 +30,15 @@ $(document).on ("ready",function() {
 
         localStorage.setItem("wish_do_list",selectedLabels.join(","));
 
+       // var btn = $(event.currentTarget);
+
+        //if (btn.hasClass('map')) {
+        //    window.location.reload(true)
+        //}
+        //else {
 
         window.location.href="/map";
+        //}
     });
 
 

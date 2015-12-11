@@ -1,9 +1,54 @@
+
+<% content_for :head do %>
+    <%= javascript_include_tag "bootstrap-dropdown-checkbox" %>
+    <%= javascript_include_tag "checkbox_related" %>
+
+
+<% end %>
+
+
 <div class="hidden">
   <div class="direction-panel">
+    <div class="travel-mode-container-panel">
+      <select id="mode-panel">
+        <option value="DRIVING">Driving</option>
+        <option value="WALKING">Walking</option>
+        <option value="BICYCLING">Bicycling</option>
+        <option value="TRANSIT">Transit</option>
+      </select>
+    </div>
+    <h1 class="js-center">Center</h1>
+          <input type="text" class="from-panel geocomplete" id="formGroupExampleInput" placeholder="from">
+         <input type="text" class="to-panel geocomplete" id="formGroupExampleInput2" placeholder="to">
 
-    <h1 class="js-hola">HOLA</h1>
-    <p>this is a direction panel</p>
 
+    <div class="routes-box">
+        <p>routes option</p>
+    </div>
+
+    <div>
+       <p>direction steps</p>
+    </div>
+
+
+    <div class="myDropdownCheckbox" id="check-panel"></div>
+
+    <select class="radius-panel" id="radius-selector">
+      <option value="2"> 2 mi radius</option>
+      <option value="5">5 mi radius</option>
+      <option value="15">+5 mi radius</option>
+    </select>
+
+    <div class="fun-box">
+      <p>my fun box</p>
+    </div>
+
+
+    <div>
+      <button type="button" class="fun-button" id="map-button">Show my options</button>
+    </div>
 
   </div>
 </div>
+
+
