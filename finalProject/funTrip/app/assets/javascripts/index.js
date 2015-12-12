@@ -44,8 +44,13 @@ $(document).on ("ready",function() {
 
         window.location.href="/map";
         //}
+
     });
 
+    $("#go-top-button").click(function() {
+        $("html, body").animate({ scrollTop: 0 }, "slow");
+        return false;
+    });
 
     $(".geocomplete").geocomplete();
 });

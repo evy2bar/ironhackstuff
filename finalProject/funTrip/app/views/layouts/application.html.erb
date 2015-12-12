@@ -11,7 +11,28 @@
     <%= yield :head %>
     <%= csrf_meta_tags %>
   </head>
-  <body class="welcome page">
+  <body class="page">
+
+
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '1536446926676330',
+        xfbml      : true,
+        version    : 'v2.5'
+      });
+    };
+
+    (function(d, s, id){
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {return;}
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
+
+
     <% if notice %>
     <p class="alert alert-success"><%= notice %></p>
     <% end %>

@@ -37,7 +37,7 @@ $(document).on("ready",function() {
     $("#mode-panel").val(mode);
     $(".radius-panel").val(radius);
 
-     $('body').attr('style', "background-image: url('/assets/road-mountains.jpeg');");
+     //$('body').attr('style', "background-image: url('/assets/road-mountains.jpeg');");
 
     $("#map-button").on("click", function(event) {
         var from = $(".from-panel").val();
