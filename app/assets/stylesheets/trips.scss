@@ -1,0 +1,255 @@
+// Place all the styles related to the trips controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body, html {
+  height: 100%;
+}
+
+.welcome {
+  background: url('/assets/mountains.jpeg') no-repeat;
+  background-size: cover;
+  height: 100%;
+  background-position-y: 47%;
+}
+
+.about-container {
+  background: url('/assets/background5.jpg') no-repeat;
+  background-size: cover;
+}
+
+body.sign-up {}
+
+.jumbotron {
+    background-color: rgba(255,255,255,0.4);
+    margin-left:25%;
+    margin-right: 25%;
+    margin-top:80px;
+}
+
+select > .placeholder {
+	display: none;
+}
+
+.title-box {
+	text-align: center;
+	margin-top:80px;
+	margin-bottom: 30px;
+}
+
+.footer {
+	background: rgb(109, 131, 148);
+	width: 100%;
+	height: 50px;
+	bottom: 0;
+	opacity: 0.7;
+  padding-top: 17px;
+  padding-left: 20px;
+}
+
+.bottom-menu {
+	float: right;
+    margin-right: 40px;
+}
+
+.bottom-menu a {
+	color: black;
+}
+
+.footer p {
+	margin: 35px;
+}
+
+.navbar-link {
+	color:white;
+}
+
+.wish-list-container {
+  display: inline-flex;
+  margin: 10px 0;
+}
+
+.radius-index {
+  margin-right: 25px;
+  color: #F7F7F7;
+  background-color: #5bc0de;
+  border-color: #46b8da;
+}
+
+.radius-panel {
+
+}
+
+#index-dropdown .dropdown-checkbox-toggle {
+color: white;
+background-color: #ffa871;
+border-color: #f1c78e;
+  border-radius: 5px;
+  border-width: 1px;
+}
+
+.map-checkboxes{
+  color: #8b7765;
+  background-color: #aeffb1;
+  border-color: #73f1bd;
+  border-radius: 5px;
+  border-width: 1px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.fun-button {
+  margin-top: 35px;
+}
+
+#map-button {
+  color: #6e5a4d;
+  background-color:#73f1bd;
+  border-color: #aeffb1;
+  border-radius: 5px;
+  border-width: 1px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+}
+
+.title-box {
+  font-family: Herculanum;
+}
+
+.devise-container {
+  position: absolute;
+  margin-left: 50%;
+  left: -125px;
+  width: 250px;
+  margin-top: 70px;
+}
+
+#user_email, #user_password {
+  width: 100%;
+}
+
+.travel-mode-container {
+  display: inline-flex;
+  margin-bottom: 10px;
+  margin-top: 3px;
+}
+
+#mode {
+  margin-right: 25px;
+  color: #F7F7F7;
+  background-color: #5bc0de;
+  border-color: #46b8da;
+
+}
+
+#map {
+  height: 100%;
+  width: 100%;
+}
+
+.direction-panel {
+  background-color: rgb(234, 232, 233);
+  border: 2px solid #fff;
+  border-radius: 3px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.3);
+  margin-top: -20px;
+  margin-right: 15px;
+  text-align: center;
+  height: 740px;
+  width: 335px;
+}
+
+.js-center {
+  color: rgb(25,25,25);
+  font-family: sans-serif;
+  font-size: 16px;
+  margin-top: 5px;
+  margin-left: 5px;
+  width: 50px;
+  //padding-left: 5px;
+  //padding-right: 5px;
+}
+
+.from-panel .to-panel {
+  width: 96%;
+  margin-left: 5px;
+}
+
+.mode-panel {
+
+}
+
+#steps-panel {
+  width: 330px;
+  height: 400px;
+  overflow: scroll;
+}
+
+.map-header{
+  background-color: rgb(234, 232, 233);
+  border-radius: 3px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, .3);
+  margin-left: 10px;
+  /*margin-bottom: 22px;
+  margin-top: 5px;*/
+}
+
+.new_user {
+
+}
+
+.field {
+  margin: 5px;
+  overflow-x: scroll;
+}
+
+.slide {
+
+
+}
+
+.about {
+  width: 100%;
+  height: 500px;
+}
+
+.about-pic {
+  width: 30%;
+}
+
+.about-text {
+  width: 70%;
+  margin-top: 150px;
+  margin-left: 80px;
+  color: #bababa;
+
+}
+
+.about-p {
+  margin-top: 40px;
+  width: 1200px;
+  position: absolute;
+  left: 50%;
+  margin-left: -600px;
+  text-align: center;
+}
+
+.pic-container {
+  width: 1200px;
+  display: flex;
+  position: absolute;
+  left: 50%;
+  margin-left: -600px;
+}
+
+.slide-text {
+  margin-bottom: 25px;
+  text-align: center;
+  color: #bababa;
+}
+
+h3 {
+  text-align: center;
+  color: #bababa;
+}
