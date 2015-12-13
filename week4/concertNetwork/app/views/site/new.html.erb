@@ -1,0 +1,17 @@
+<h2>Add a new Concert</h2>
+
+<h4>Artist</h4>
+<%= text_field_tag "artist" %>
+<h4>Venue</h4>
+<%= text_field_tag "venue" %>
+<h4>City</h4>
+<%= text_field_tag "city" %>
+<h4>Date/Time</h4>
+<%= datetime_local_field_tag "date" %>
+<h4>Price</h4>
+<%= text_field_tag "price" %>
+<h4>Description</h4>
+<%= text_field_tag "description" %>
+<div id= "footer">
+	<%= button_to "Add", action: "home" %>
+</div>

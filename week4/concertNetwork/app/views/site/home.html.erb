@@ -1,0 +1,41 @@
+<h1>Welcome</h1>
+
+
+
+
+
+<h2>Today</h2>
+<ol>
+	<% @today_concerts.each do |co|%>
+			<li>
+				<h3> <%= link_to co.artist, "/details/#{co.id}", html_options= { } %> Concert</h3>
+				 
+			</li>
+	<%end%>
+</ol>
+
+<h2>Later this month</h2>
+<ol>
+	<% @later_concerts.each do |co|%>
+			<li>
+				<h3> <%= link_to co.artist, "/details/#{co.id}", html_options= { } %> Concert</h3>
+				 
+			</li>
+	<%end%>
+</ol>
+
+<h2>Past concerts</h2>
+<ol>
+	<% @past_concerts.each do |co|%>
+			<li>
+				<h3> <%= link_to co.artist, "/details/#{co.id}", html_options= { } %> Concert</h3>
+				 
+			</li>
+	<%end%>
+</ol>
+
+<small>For Admin Use <strong>Only</strong></small>
+<div id= "footer">
+	<%= button_to "add new concert", method: "get" , action: "new"%>  <!-- le cambie el method que by default es post, no se si esta bien-->
+	<!-- <button type="button" class="btn btn-default" >Add Concert</button> -->
+</div>

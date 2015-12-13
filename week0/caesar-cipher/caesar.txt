@@ -1,0 +1,44 @@
+
+
+forma correcta solo una palabra
+
+
+def cipher(input,)
+	n = input.length - 1
+	input = input.split('')
+	result = ''
+	input.each do |i|
+		num = i.ord
+		num -= 1
+		result += num.chr 
+	end
+	puts result
+end
+  
+ cipher('ifmmp’, )
+
+
+
+esta forma me hace la oracion correcta con tres parámetros,que cambian.
+
+def cipher(input, x, sign)
+	n = input.length - 1
+	input = input.split('')
+	result = ''
+	input.each do |i|
+		if i != ' '
+			num = i.ord
+			if sign == '+'  
+				num += x
+			else
+				num -= x
+			end
+			result += num.chr 
+		else
+			result += ' '
+		end
+	end
+	puts result 
+end
+  
+ cipher('"pb uhdo qdph lv grqdog gxfn"', 3 , '-')

@@ -1,0 +1,32 @@
+<!-- nine first movies -->
+<h2> Showing nine results for your search</h2>
+<h3><%= @random_question %></h3>
+
+<% @movies.each do |m| %>
+   <!-- <h3><%= m.title %></h3> -->
+  <!--  <button><img src= "<%= m.poster%>" style= "width: 118px; heigth: 174px; margin-left:2px; margin-right:2px; margin-top: 2px; margin-botton: 2px"></button> -->
+  <!--  <span> <%= m.year%></span>  -->
+	<% if m == @question %>
+		<button onclick="myAnswer('correct')">
+	<% else %>
+		<button onclick="myAnswer('incorrect')">
+	<% end %>
+			<img src= "<%= m.poster%>" style= "width: 118px; heigth: 174px; margin-left:2px; margin-right:2px; margin-top: 2px; margin-botton: 2px">
+	</button>
+<% end %>
+
+<script>
+function myAnswer(response){
+	if (response === "incorrect") {
+			alert("Oops, you're wrong!")
+		}
+	else {
+			alert("Yayyy, you got this!!!");
+			result = confirm("Next question?");
+			if result 
+		}
+
+
+}
+</script>
+

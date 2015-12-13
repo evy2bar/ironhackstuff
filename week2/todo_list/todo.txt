@@ -1,0 +1,56 @@
+
+
+
+
+
+
+
+class TodoList
+
+	attr_reader :name, :id
+	@@actual_id = 1
+	 
+	def initialize(name, tasks)
+		@name = name
+		@tasks = []
+		@id = @@actual_id
+		@@actual_id += 1
+	​end
+
+	def add_task
+		
+	end
+
+	def delete_task(task)
+		@task.delete(task)
+	end
+
+	def reminder
+	end
+
+end
+
+class Task 
+	 def initialize(description, status, due_date, notes, category)
+	@description = description
+	@status = status
+	@due_date = due_date
+	@notes = notes
+	@category = category
+	end 
+
+	def update
+	end
+
+	def completed
+
+	end
+end
+id1 = Task.new("Buy vegs","incompleted", 10/27/2015,"","" )
+
+
+
+
+
+
+

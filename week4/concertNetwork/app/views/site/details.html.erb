@@ -1,0 +1,17 @@
+<h1>Concert details</h1>
+
+			<li>
+				<h3> <%= @cons.artist %> Concert</h3>
+				  Where?
+				<%= @cons.venue %>.
+				  City:
+				<%= @cons.city %>.
+				  When?
+				<%= @cons.date %>.
+				  How much?
+				<%= @cons.price %> USD.
+				<% if @cons.description != nil %>
+				  More:
+				<%= @cons.description %>
+				<%end%>
+			</li>

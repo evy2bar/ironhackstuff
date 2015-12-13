@@ -1,0 +1,59 @@
+"errores: antes no tenia el . en i.to_es
+antes de empezar con un if tengo que terminaar el anterior stament con un end. ahora trabaja perfecto.
+asi es como se ve, sin errores:
+
+
+
+def fizzbuzz(n)
+  (1..n).each do |i|
+    if i % 3 == 0 && i % 5 == 0
+      puts 'fizzbuzz'
+    elsif i % 3 == 0
+      puts 'fizz'
+    elsif i % 5 == 0
+      puts 'buzz'
+    end           <<<<<<este end separa las condiciones
+
+    if  i % 3 == 0 && i % 5 == 0 &&  i.to_s[0] == "1"
+        puts 'fizzbuzzbang'
+    elsif i.to_s[0] == "1" 
+      puts 'bang' 
+    elsif i % 3 == 0 && i.to_s[0] == "1"
+        puts 'fizzbang'
+    elsif i % 5 == 0 && i.to_s[0] == "1"
+        puts 'buzzbang'
+    else puts i
+
+    end
+  end
+end
+
+fizzbuzz(100)
+
+
+
+ESTA ES LA MANERA REFACTORING
+
+
+
+
+def fizzbuzz(n)
+  result = ""
+  (1..n).each do |i|
+     
+  if i % 3 == 0
+    result << "Fizz"
+  end
+  if i % 5 == 0
+    result << "Buzz"
+  end
+  if i.to_s[0] == "1" 
+      result << "Bang"
+   end   
+   puts result == "" ? i : result 
+   result = ""
+   end  
+end
+
+fizzbuzz(50)
+

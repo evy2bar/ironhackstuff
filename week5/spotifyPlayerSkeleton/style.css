@@ -1,0 +1,227 @@
+.widget {
+  width: 300px;
+  margin: 115px auto 0;
+  border-radius: 5px;
+  overflow: hidden;
+  display: block;
+}
+
+.header {
+  height: 78px;
+  background-color: #BAC3C5;
+  position: relative;
+  font-size: 12px;
+}
+
+.btn-play {
+  margin: 9px;
+  width: 60px;
+  height: 60px;
+  float: left;
+  border-radius: 50px;
+  border: 3px solid #5f5c5f;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.btn-play:after {
+  content: ' ';
+  position: relative;
+  display: block;
+  width: 0px;
+  height: 0px;
+  margin-left: 50%;
+  margin-top: 50%;
+  left: -10px;
+  top: -18px;
+  border-top: 18px solid transparent;
+  border-bottom: 18px solid transparent;
+  border-left: 30px solid #3c3c3c;
+}
+
+.btn-play:hover {
+  cursor: pointer;
+  border-color: #345;
+}
+
+.btn-play:hover:after {
+  border-left-color: #666;
+}
+
+.btn-play:active:after {
+  border-left-color: #786;
+}
+
+.btn-play.playing:before, .btn-play.playing:after {
+  width: 9px;
+  height: 36px;
+  background-color: #3c3c3c;
+  position: absolute;
+  content: "";
+  top: 22px;
+  left: 27px;
+  border: 0;
+  margin: 0;
+}
+
+.btn-play.playing:after {
+  left: 43px;
+}
+
+.btn-play.playing:hover:before, .btn-play.playing:hover:after {
+  background-color: #666;
+}
+
+.btn-play.playing:active:before, .btn-play.playing:active:after {
+  background-color: #432;
+}
+
+.btn-play {
+  border-color: #888;
+}
+
+.btn-play:hover {
+  cursor: auto;
+}
+
+.btn-play:after {
+  border-left-color: #888;
+}
+
+.metadata {
+  display: inline-block;
+  padding: 10px;
+  width: calc(100% - 100px);
+}
+
+.title, .author {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 0;
+  line-height: 1.4em;
+  height: 1.4em;
+  font-size: 12px;
+  font-weight: bold;
+  
+}
+.title {
+  font-size: 20px;
+  font-family: fantasy;
+}
+
+.author {
+  font-weight: normal;
+  font-size: 13px;
+  font-family: cursive;
+
+}
+
+.seekbar {
+  margin-top: 5px;
+  width: 100%;
+}
+.js-picture {
+  margin-top: 25px;
+
+}
+
+.cover {
+  height: 300px;
+  position: relative;
+}
+
+.cover img {
+  max-width: 100%;
+  max-height: 100%;
+  position: absolute;
+  left: 0;
+  border: 0;
+}
+.js-picture {
+  width: 30%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+
+.modal-dialog {
+  width: 50%;
+  background-color:#3e3e40; 
+}
+
+.js-albumName {
+  font-style: oblique;
+  font-weight: bold;
+  font-family: cursive;
+  font-color: green;
+  font-size: 25px;
+  margin-right: 10px;
+}
+
+.container {
+    background-image: url("http://previews.123rf.com/images/welcomia/welcomia1109/welcomia110900106/10642857-Mysterious-Music-Music-Background-with-Colorful-Violet-and-Blue-Rays-Floral-Ornaments-and-Bass-Speak-Stock-Photo.jpg");
+    background-size: cover;
+}
+
+.search-field {
+    font-size: 23px;
+    width: 450px;
+    margin-bottom: 15px;
+    margin-top: 25px;
+    position: absolute;
+    left: 50%;
+    margin-left: -225px;
+
+}
+.full-album {
+    margin-bottom: 1px;
+    margin-top: 5px;
+    position: absolute;
+    left: 50%;
+    margin-left: -100.7265px;
+
+
+}
+.generos {
+  margin-left: 30px;
+}
+.landing-logo {
+  margin-top: 25px;
+  position: absolute;
+  right: 50%;
+  margin-right: -134px;
+}
+
+span {
+  line-height: 1.4em;
+}
+
+
+audio {
+  display: none;
+}
+
+progress {
+  width: 100%;
+  height: 5px;
+  padding: 0;
+  background-color: #3e3e40;
+  position: relative;
+  border: 0;
+  overflow: hidden;
+}
+
+progress::-webkit-progress-bar {
+  background-color: #3e3e40;
+}
+
+progress::-webkit-progress-value {
+  background-color: #45a800;
+}
+
+progress::-moz-progress-bar {
+  background-color: #45a800;
+}

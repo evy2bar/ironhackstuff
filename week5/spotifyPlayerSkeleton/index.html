@@ -1,0 +1,114 @@
+
+<!-- don't forget to include your js file ( as a <script type="text/javascript"></script>) and the jquery (<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>) also the css ( as a link) and every file you are using -->
+
+
+
+<html>
+<head>
+	<title>Track Finder</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="spotify.js"></script>
+
+
+</head>
+
+
+<body class="container">
+	
+	<div class="search-field">
+ 		<div class="input-group">
+	      <input type="text" class="js-artist form-control" placeholder="Search for...">
+	      <span class="input-group-btn">
+	        <button class="js-submit-button btn btn-default glyphicon glyphicon-search" type="button"></button>
+	      </span>
+    	</div>
+	  </div>
+		
+    
+  
+
+	<div class="widget">
+		<div class="header">
+		<div class="btn-play js-play-btn" ></div>
+		<div class="metadata">
+		  <marquee scrollamount=5 class="title"></marquee>
+		  <div style="overflow: hidden">
+		  	<a href="#" class="author"></a>
+		  </div>
+
+		  <div>
+		    <progress class="seekbar" value="" max="30"></progress>
+		  </div>
+		</div>
+		</div>
+		<div class="cover">
+			<img class="album-image" src="">   <!-- borre el src -->
+		</div>
+
+		<audio class="audio-player" src=""></audio>
+
+		<img class="landing-logo" src="https://play.spotify.edgekey.net/client/19b6d34/images/logo.png" alt="Spotify">
+	</div>
+
+	<div class="modal fade js-modal">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+
+	      <div class="modal-header">
+	      	 <!-- Close button -->
+		    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span>&times;</span>
+	        </button>
+			<a href="#" target="_blank" class="full-album">Click Here for Full Album Tracks</a>
+
+			<img class="js-picture" scr="">
+			<spam class="js-albumName"></spam>
+			<spam>   By: <spam>
+	        <spam class="js-name"><spam>
+	      </div>
+
+	      <div class="modal-body">
+	      	<small >Popularity Rank:</small>
+	        <small class="js-popular"></small>
+	        <span class="generos">
+	        <small> Genres: </small>
+	        <small class="js-genres"></small>
+	        </span>	   
+	      </div>
+
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	
+</body>
+</html>
+
+
+<!-- 
+https://i.scdn.co/image/02f4c936b917ad9d9503ff0bd73e56833e032be4
+
+
+https://p.scdn.co/mp3-preview/8ac19a3ec25a4051544b6ed38d831003dd6e71fd
+
+ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
