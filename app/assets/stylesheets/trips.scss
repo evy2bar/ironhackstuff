@@ -127,11 +127,13 @@ select > .placeholder {
 }
 
 .devise-container {
-  position: absolute;
-  margin-left: 50%;
-  left: -125px;
-  width: 250px;
-  margin-top: 70px;
+  width: 30%;
+  margin-top: 13%;
+  background-color: rgba(0, 0, 0, 0.64);
+  border-radius: 10px;
+  left: 50%;
+  margin-right: -50%;
+
 }
 
 #user_email, #user_password {
@@ -297,3 +299,9 @@ h3 {
   font-family: Roboto Slab;
 }
 
+.page {
+  background: url('/assets/journal.jpg') no-repeat;
+  background-size: cover;
+  height: 100%;
+
+}
